@@ -1,7 +1,8 @@
 return {
     'nvim-tree/nvim-tree.lua',
-
-    config = function()   require('nvim-tree').setup({
+-----------------------------------------------------------------------------aaa
+    config = function()
+        require('nvim-tree').setup({
           filters = { dotfiles = false },
           disable_netrw = true,
           hijack_cursor = true,
@@ -11,6 +12,7 @@ return {
             update_root = false,
           },
           view = {
+            side = 'right',
             width = 30,
             preserve_window_proportions = true,
           },
@@ -33,5 +35,8 @@ return {
             },
           },
         })
+
+        -- keybinding for nvim-tree
+        vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle);
     end
 }
