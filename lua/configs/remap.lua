@@ -22,3 +22,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 --vim.keymap.set('n', '<leader>;', vim.cmd.terminal)
 --vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
 vim.keymap.set('n', '<leader>r', vim.diagnostic.goto_next, opts)
+
+vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('v', '<', '<gv')

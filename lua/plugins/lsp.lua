@@ -26,10 +26,12 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
+                -- lsp
                 "lua_ls",
                 "rust_analyzer",
                 "pyright",
                 "ruff",
+                -- formatter
             },
             handlers = {
                 function(server_name) -- default handler (optional)
