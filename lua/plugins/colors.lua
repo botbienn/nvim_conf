@@ -1,5 +1,6 @@
 return {
 	{
+        -- TODO: make better background
 		-- "rebelot/kanagawa.nvim",
 		"rose-pine/neovim",
 		config = function()
