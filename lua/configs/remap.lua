@@ -30,6 +30,7 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("n", "<leader>/", function()
 	vim.cmd.norm("gcc")
 end, { remap = true })
+
 vim.keymap.set("v", "<leader>/", function()
 	vim.cmd.norm("gc")
 end, { remap = true })
