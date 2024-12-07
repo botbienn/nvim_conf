@@ -1,20 +1,15 @@
-function ColorMyPencils(color)
-	color = color or "rose-pine"
-	vim.cmd.colorscheme(color)
-end
-
 return {
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        config = function()
-            require('rose-pine').setup({})
+	{
+        "rebelot/kanagawa.nvim",
+		config = function()
+			require("kanagawa").setup({
+				variant = "auto", -- auto, main, moon, or dawn
+				dark_variant = "main", -- main, moon, or dawn
+				dim_inactive_windows = false,
+				extend_background_behind_borders = true,
+			})
 
-            vim.cmd("colorscheme rose-pine")
-
-            ColorMyPencils()
-        end
-    },
-
-
+			vim.cmd("colorscheme kanagawa")
+		end,
+	},
 }
