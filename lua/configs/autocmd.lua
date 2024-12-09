@@ -35,3 +35,9 @@ autocmd("LspAttach", {
 	end,
 })
 
+autocmd("FileType", {
+	pattern = { "*.sql", "*.mysql", "*.plsql" },
+	callback = function()
+		require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
+	end,
+})

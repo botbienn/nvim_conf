@@ -32,6 +32,7 @@ return {
 				"rust_analyzer",
 				"pyright",
 				"ruff",
+                "ts_ls",
 				-- formatter
 			},
 			handlers = {
@@ -71,19 +72,16 @@ return {
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 				--["<C-y>"] = cmp.mapping.confirm({ select = true }),
-				["<CR>"] = cmp.mapping.confirm({ select = false }),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- For luasnip users.
+                { name = "vim-dadbod-completion"},
 			}, {
 				{ name = "buffer" },
 			}),
-		})
-
-		cmp.setup.filetype({ "sql", "pgsql" }, {
-			sources = { { name = "vim-dadbob-completion" }, { name = "buffer" } },
 		})
 
 		vim.diagnostic.config({
