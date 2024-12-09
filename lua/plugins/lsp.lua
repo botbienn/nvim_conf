@@ -61,7 +61,7 @@ return {
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 		cmp.setup({
-			--preselect = cmp.PreselectMode.None,
+			preselect = cmp.PreselectMode.None,
 			completion = { completeopt = "menu,menuone,noselect" },
 			snippet = {
 				expand = function(args)
@@ -72,7 +72,7 @@ return {
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 				--["<C-y>"] = cmp.mapping.confirm({ select = true }),
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<CR>"] = cmp.mapping.confirm({ select = false }),
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
