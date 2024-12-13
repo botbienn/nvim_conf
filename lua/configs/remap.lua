@@ -19,8 +19,8 @@ end)
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- delete word in insert mode
-vim.keymap.set("i", "<M-BS>", "<ESC>diwi")
-vim.keymap.set("i", "<M-DEL>", "<ESC>dwi")
+vim.keymap.set("i", "<M-BS>", "<ESC>dbxa")
+vim.keymap.set("i", "<M-DEL>", "<ESC>dwa")
 
 -- paste without replacing the buffer
 vim.keymap.set("x", "<leader>p", [["_dP]])
