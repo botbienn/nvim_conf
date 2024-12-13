@@ -8,11 +8,11 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("n", "<C-d>", function()
-	require("neoscroll").ctrl_d({ duration = 200 })
+	require("neoscroll").ctrl_d({ duration = 50 })
 	vim.cmd.normal("zz")
 end)
 vim.keymap.set("n", "<C-u>", function()
-	require("neoscroll").ctrl_u({ duration = 200 })
+	require("neoscroll").ctrl_u({ duration = 50 })
 	vim.cmd.normal("zz")
 end)
 
@@ -46,3 +46,7 @@ end, { remap = true })
 vim.keymap.set("v", "<leader>/", function()
 	vim.cmd.norm("gc")
 end, { remap = true })
+
+local list = {'a','b'}
+
+print(list[2])
