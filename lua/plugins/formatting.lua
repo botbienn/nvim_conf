@@ -14,6 +14,10 @@ return {
 				-- Conform will run the first available formatter
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 
+				html = { "prettier" },
+
+				hbs = { "prettier" },
+
 				cpp = { "clang-format" },
 
 				c = { "clang-format" },

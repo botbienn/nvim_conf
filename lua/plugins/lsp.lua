@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
@@ -11,9 +12,14 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
+		"rafamadriz/friendly-snippets",
 	},
 
 	config = function()
+		local luasnip = require("luasnip")
+		local types = require("luasnip.util.types")
+		require("luasnip.loaders.from_vscode").lazy_load()
+
 		local cmp = require("cmp")
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local capabilities = vim.tbl_deep_extend(
@@ -32,7 +38,9 @@ return {
 				"rust_analyzer",
 				"pyright",
 				"ruff",
-                "ts_ls",
+				"ts_ls",
+				"html",
+				"tailwindcss",
 				-- formatter
 			},
 			handlers = {
@@ -55,8 +63,49 @@ return {
 						},
 					})
 				end,
+
+				["html"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.html.setup({
+						capabilities = capabilities,
+						config = {
+							filetypes = { "html", "templ", "hbs" },
+							format = {
+								templating = true,
+								wrapLineLength = 120,
+								wrapAttributes = "auto",
+							},
+							hover = {
+								documentation = true,
+								references = true,
+							},
+						},
+					})
+				end,
 			},
 		})
+
+		luasnip.setup({
+			history = true,
+			delete_check_events = "TextChanged",
+			-- Display a cursor-like placeholder in unvisited nodes
+			-- of the snippet.
+			ext_opts = {
+				[types.insertNode] = {
+					unvisited = {
+						virt_text = { { "|", "Conceal" } },
+						virt_text_pos = "inline",
+					},
+				},
+			},
+		})
+
+		vim.keymap.set({ "i", "s" }, "<C-K>", function()
+			luasnip.jump(1)
+		end, { silent = true })
+		vim.keymap.set({ "i", "s" }, "<C-J>", function()
+			luasnip.jump(-1)
+		end, { silent = true })
 
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -78,7 +127,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- For luasnip users.
-                { name = "vim-dadbod-completion"},
+				{ name = "vim-dadbod-completion" },
 			}, {
 				{ name = "buffer" },
 			}),

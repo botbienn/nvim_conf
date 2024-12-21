@@ -31,8 +31,14 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- call terminal
---vim.keymap.set('n', '<leader>;', vim.cmd.terminal)
---vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
+vim.keymap.set("n", "<leader>;", function()
+	vim.cmd.vnew()
+	vim.cmd.term()
+	vim.cmd.wincmd("J")
+	vim.api.nvim_win_set_height(0, 10)
+end)
+vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
+
 vim.keymap.set("n", "<leader>r", vim.diagnostic.goto_next, opts)
 
 vim.keymap.set("v", ">", ">gv")
@@ -47,6 +53,6 @@ vim.keymap.set("v", "<leader>/", function()
 	vim.cmd.norm("gc")
 end, { remap = true })
 
-local list = {'a','b'}
+local list = { "a", "b" }
 
 print(list[2])
