@@ -41,6 +41,7 @@ return {
 				"ts_ls",
 				"html",
 				"tailwindcss",
+                "clangd",
 				-- formatter
 			},
 			handlers = {

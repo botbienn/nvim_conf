@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 --vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- fast save: 
+vim.keymap.set('n', '<leader>w', ':w<CR>')
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -19,7 +21,7 @@ end)
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- delete word in insert mode
-vim.keymap.set("i", "<M-BS>", "<ESC>dbxa")
+vim.keymap.set("i", "<M-BS>", "<ESC>lbcw")
 vim.keymap.set("i", "<M-DEL>", "<ESC>dwa")
 
 -- paste without replacing the buffer
