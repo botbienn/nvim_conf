@@ -57,4 +57,3 @@ end, { remap = true })
 
 local list = { "a", "b" }
 
-print(list[2])
