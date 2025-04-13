@@ -2,6 +2,11 @@ vim.g.mapleader = " "
 --vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- fast save: 
 vim.keymap.set('n', '<leader>w', ':w<CR>')
+-- fold trigger
+vim.keymap.set('n', '<leader>f', 'za')
+
+-- fold all
+vim.keymap.set('n', '<leader>F', 'zM')
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
