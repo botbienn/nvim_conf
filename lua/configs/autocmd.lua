@@ -78,6 +78,7 @@ autocmd({ "FileType", "BufRead", "BufNewFile" }, {
     callback = function()
         if vim.bo.filetype == "dbui" then
             vim.cmd("set foldmethod=manual")
+            vim.cmd("set relativenumber")
             return;
         end
         -- check if file type has no extension

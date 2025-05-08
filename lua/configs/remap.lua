@@ -62,3 +62,11 @@ end, { remap = true })
 
 local list = { "a", "b" }
 
+-- Tab manuvers
+vim.keymap.set("n", "<leader>1", "1gt")
+vim.keymap.set("n", "<leader>2", "2gt")
+vim.keymap.set("n", "<leader>3", "3gt")
+vim.keymap.set("n", "<leader>4", "4gt")
+vim.keymap.set("n", "<leader>5", "5gt")
+vim.keymap.set("n", "<leader><Tab>", ":tabnew<CR>")
+vim.keymap.set("n", "<leader><S-Tab>", ":tabc<CR>")
