@@ -25,6 +25,7 @@ return {
 		vim.g.loaded_netrw = 1
 		require("telescope").load_extension("file_browser")
 		vim.keymap.set("n", "<leader>pv", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+    vim.keymap.set('n', '<leader>sr', function() require('telescope.builtin').lsp_references() end, { noremap = true, silent = true })
 
 		-- Alternatively, using lua API
 
