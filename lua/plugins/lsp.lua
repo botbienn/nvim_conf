@@ -111,12 +111,12 @@ return {
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
         cmp.setup({
-            preselect = true,
-            completion = { completeopt = "menu" },
+            -- preselect = true,
+            -- completion = { completeopt = "menu" },
 
             experimental = {
-                ghost_text = true,
-                -- ghost_text = false,
+                -- ghost_text = true,
+                ghost_text = false,
             },
 
             snippet = {
@@ -142,8 +142,8 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
                 ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-                -- ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-                ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+                ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                -- ["<Tab>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
