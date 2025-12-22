@@ -25,26 +25,29 @@ return {
       },
       suggestion = {
         enabled = true,
-        auto_trigger = false,
+        auto_trigger = true,
         hide_during_completion = false,
         debounce = 75,
         trigger_on_accept = true,
         keymap = {
-          accept = "<M-CR>",
+          accept = "<M-y>",
           accept_word = false,
           accept_line = false,
           next = "<M-]>",
           prev = "<M-[>",
-          dismiss = "<C-]>",
+          dismiss = "<M-u>",
         },
       },
       nes = {
         enabled = false, -- requires copilot-lsp as a dependency
         auto_trigger = false,
         keymap = {
+          -- accept_and_goto = "<Tab>",
           accept_and_goto = false,
           accept = false,
-          dismiss = false,
+          next = false,
+          prev = false,
+          dismiss = "",
         },
       },
       auth_provider_url = nil, -- URL to authentication provider, if not "https://github.com/"
@@ -80,22 +83,28 @@ return {
         type = "nodejs", -- "nodejs" | "binary"
         custom_server_filepath = nil,
       },
-      server_opts_overrides = {},
+      server_opts_overrides = {
+        settings = {
+          telemetry = {
+            telemetryLevel = "off",
+          },
+        },
+      },
       filetypes = {
-        markdown = true,   -- overrides default
-        terraform = false, -- disallow specific filetype
-        javascript = true, -- allow specific filetype
-        typescript = true, -- allow specific filetype
+        markdown = true,        -- overrides default
+        terraform = false,      -- disallow specific filetype
+        javascript = true,      -- allow specific filetype
+        typescript = true,      -- allow specific filetype
         javascriptreact = true, -- allow specific filetype
         typescriptreact = true, -- allow specific filetype
-        python = true, -- allow specific filetype
-        ["*"] = false,     -- disable for all other filetypes and ignore default `filetypes`
+        python = true,          -- allow specific filetype
+        ["*"] = false,          -- disable for all other filetypes and ignore default `filetypes`
         sh = function()
           if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), '^%.env.*') then
             -- disable for .env files
             return false
           end
-          return true
+          return false
         end,
       },
     })

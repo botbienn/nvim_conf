@@ -23,7 +23,7 @@ return {
               callback = require("codecompanion.strategies.chat.slash_commands").file,
               description = "Select a file using Telescope",
               opts = {
-                provider = "telescope",   -- Can be "default", "telescope", "fzf_lua", "mini_pick" or "snacks"
+                provider = "telescope", -- Can be "default", "telescope", "fzf_lua", "mini_pick" or "snacks"
                 contains_code = true,
               },
             },
@@ -35,14 +35,14 @@ return {
           enabled = true,
           provider_opts = {
             inline = {
-              layout = "buffer",             -- float|buffer - Where to display the diff
-              diff_edit = true,              -- Enable diff edit when using inline Assistant
+              layout = "buffer",           -- float|buffer - Where to display the diff
+              diff_edit = true,            -- Enable diff edit when using inline Assistant
               opts = {
-                context_lines = 3,           -- Number of context lines in hunks
-                dim = 25,                    -- Background dim level for floating diff (0-100, [100 full transparent], only applies when layout = "float")
-                full_width_removed = true,   -- Make removed lines span full width
-                show_keymap_hints = true,    -- Show "gda: accept | gdr: reject" hints above diff
-                show_removed = true,         -- Show removed lines as virtual text
+                context_lines = 3,         -- Number of context lines in hunks
+                dim = 25,                  -- Background dim level for floating diff (0-100, [100 full transparent], only applies when layout = "float")
+                full_width_removed = true, -- Make removed lines span full width
+                show_keymap_hints = true,  -- Show "gda: accept | gdr: reject" hints above diff
+                show_removed = true,       -- Show removed lines as virtual text
               },
             },
           },
@@ -65,11 +65,15 @@ return {
         vim.notify("CodeCompanion chat is disabled for this filetype: " .. ft, vim.log.levels.WARN)
         return
       end
-      vim.cmd("CodeCompanionChat")
+      vim.cmd("CodeCompanionActions")
       -- require("codecompanion.chat").toggle()
     end, { desc = "Toggle CodeCompanion Chat" })
+
   end,
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "MeanderingProgrammer/render-markdown.nvim", -- Enhanced markdown rendering
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    ft = { "markdown", "codecompanion" },
   },
 }
