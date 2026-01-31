@@ -1,5 +1,7 @@
 return {
   "olimorris/codecompanion.nvim",
+  event = "VeryLazy",
+  lazy = true,
   version = "v17.33.0",
   opts = {},
   config = function()
@@ -16,8 +18,10 @@ return {
     require("codecompanion").setup({
       strategies = {
         chat = {
-          adapter = "copilot",
-          model = "gpt-4.1",
+          adapter = {
+            name = "copilot",
+            model = "gpt-5-mini",
+          },
           slash_commands = {
             ["file"] = {
               callback = require("codecompanion.strategies.chat.slash_commands").file,
@@ -28,6 +32,13 @@ return {
               },
             },
           },
+        },
+
+        inline = {
+          adapter = {
+            name = "copilot",
+            model = "gpt-5-mini",
+          }
         }
       },
       display = {
@@ -68,7 +79,6 @@ return {
       vim.cmd("CodeCompanionActions")
       -- require("codecompanion.chat").toggle()
     end, { desc = "Toggle CodeCompanion Chat" })
-
   end,
   dependencies = {
     "nvim-lua/plenary.nvim",

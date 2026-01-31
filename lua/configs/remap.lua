@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 -- fast save: 
 vim.keymap.set('n', '<leader>w', ':w<CR>')
 -- fold trigger
-vim.keymap.set('n', '<leader>f', 'za')
+vim.keymap.set('n', '<leader>f', 'zA')
 
 -- fold all
 vim.keymap.set('n', '<leader>F', 'zM')

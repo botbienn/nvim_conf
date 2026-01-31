@@ -4,11 +4,11 @@ return {
     -- https://igorlfs.github.io/neovim-cpp-dbg
     {
         "nvim-neotest/nvim-nio",
-        event = "VeryLazy",
+        lazy = true,
     },
     {
         "rcarriga/nvim-dap-ui",
-        event = "VeryLazy",
+        lazy = true,
         dependencies = "mfussenegger/nvim-dap",
         config = function()
             local dap = require("dap")

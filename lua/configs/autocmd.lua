@@ -64,13 +64,22 @@ autocmd({ "FileType", "BufRead", "BufNewFile" }, {
     vim.cmd("set filetype=html")
   end,
 })
-
 autocmd({ "FileType", "BufRead", "BufNewFile" }, {
-  pattern = { "*.*" },
+ -- match all files ("*.*" misses files without a dot)  pattern = { "*.*" },
   callback = function()
+    -- use expression-based folding (keeps your existing foldexpr)
     vim.opt.foldmethod = "expr"
     vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
-    vim.opt.foldnestmax = 4;
+
+    -- limit maximum nesting to 3
+    vim.opt.foldnestmax = 0
+
+    -- control which folds are open by default: open folds of level <= 3,
+    -- folds deeper than 3 will remain closed
+    vim.opt.foldlevelstart = 0
+
+    -- ensure folding is enabled
+    vim.opt.foldenable = true
   end,
 })
 

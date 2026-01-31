@@ -5,6 +5,7 @@ return {
   },
   cmd = "Copilot",
   event = "InsertEnter",
+  lazy = true,
   config = function()
     require("copilot").setup({
       panel = {
@@ -98,6 +99,7 @@ return {
         javascriptreact = true, -- allow specific filetype
         typescriptreact = true, -- allow specific filetype
         python = true,          -- allow specific filetype
+        sql = true,
         ["*"] = false,          -- disable for all other filetypes and ignore default `filetypes`
         sh = function()
           if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), '^%.env.*') then

@@ -8,6 +8,7 @@ local js_based_languages = {
 
 return {
   "mfussenegger/nvim-dap",
+  lazy = true,
   dependencies = {
     { "stevearc/overseer.nvim",      config = true },
     { "williamboman/mason.nvim" },
@@ -84,8 +85,8 @@ return {
           request = "attach",
           name = "Attach",
           processId = require("dap.utils").pick_process,
-          console = "integratedTerminal",         -- IMPORTANT
-          outputCapture = "std",                  -- IMPORTANT
+          console = "integratedTerminal", -- IMPORTANT
+          outputCapture = "std",          -- IMPORTANT
           cwd = vim.fn.getcwd(),
           sourceMaps = true,
         },

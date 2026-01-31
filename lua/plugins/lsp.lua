@@ -1,5 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
+	event = { "BufReadPre", "BufNewFile" },
+  lazy = true,
 
   dependencies = {
     "williamboman/mason.nvim",
@@ -82,15 +84,6 @@ return {
             },
           })
         end,
-
-        ["sql"] = function()
-          lspconfig["postgres_lsp"].setup({
-            capabilities = capabilities,
-            config = {
-              filetypes = { "sql", "mysql", "psql" },
-            }
-          })
-        end
       },
     })
 
