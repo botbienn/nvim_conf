@@ -112,12 +112,12 @@ return {
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
     cmp.setup({
-      -- preselect = true,
-      -- completion = { completeopt = "menu" },
+      preselect = true,
+      completion = { completeopt = "menu" },
 
       experimental = {
-        -- ghost_text = true,
-        ghost_text = false,
+        ghost_text = true,
+        -- ghost_text = false,
       },
 
       snippet = {
@@ -137,8 +137,8 @@ return {
         end,
       },
       window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),

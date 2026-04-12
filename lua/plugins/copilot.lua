@@ -4,7 +4,7 @@ return {
     "copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
   },
   cmd = "Copilot",
-  event = "InsertEnter",
+  -- event = "InsertEnter",
   lazy = true,
   config = function()
     require("copilot").setup({
@@ -99,6 +99,7 @@ return {
         javascriptreact = true, -- allow specific filetype
         typescriptreact = true, -- allow specific filetype
         python = true,          -- allow specific filetype
+        go = true,
         sql = true,
         ["*"] = false,          -- disable for all other filetypes and ignore default `filetypes`
         sh = function()
