@@ -87,6 +87,13 @@ return {
       },
     })
 
+    -- GDScript: the server runs inside the Godot editor on TCP 6005, so it is not in Mason.
+    vim.lsp.config("gdscript", { capabilities = capabilities })
+    vim.lsp.enable("gdscript")
+
+    vim.lsp.config("gdshader_lsp", { capabilities = capabilities })
+    vim.lsp.enable("gdshader_lsp")
+
     luasnip.setup({
       history = true,
       delete_check_events = "TextChanged",
